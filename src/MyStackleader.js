@@ -10,8 +10,9 @@ const SCREENHEIGHT = Dimensions.get('window').height;
 
 const Stack = createStackNavigator();
 
-const MyStack = () => {
+const MyStackleader = () => {
     return (
+    
       <Stack.Navigator initialRouteName='MyClothet'>
         <Stack.Screen name="MyClothet" component={MyClothet} 
         options={{
@@ -29,9 +30,10 @@ const MyStack = () => {
         }}
         />
       </Stack.Navigator>
+    
     );
   };
-  export default MyStack;
+  export default MyStackleader;
   const styles = StyleSheet.create({
     container: {
       flex: 1,

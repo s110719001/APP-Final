@@ -1,29 +1,23 @@
 import React, { useState }  from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import MyClothet from './MyClothet';
-import Hint from './Hint';
-import Leaderboard from './Leaderboard';
+import TodaysOutfit from './Todaysoutfit';
+import Home from './Home'
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
 const Stack = createStackNavigator();
 
-const MyStack = () => {
+const MyStackhome = () => {
     return (
-      <Stack.Navigator initialRouteName='MyClothet'>
-        <Stack.Screen name="MyClothet" component={MyClothet} 
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name="TodaysOutfit" component={TodaysOutfit} 
         options={{
             headerShown:false
         }}
         />
-        <Stack.Screen name="Hint" component={Hint} 
-        options={{
-            headerShown:false
-        }}
-        />
-        <Stack.Screen name="Leaderboard" component={Leaderboard} 
+        <Stack.Screen name="Home" component={Home} 
         options={{
             headerShown:false
         }}
@@ -31,7 +25,7 @@ const MyStack = () => {
       </Stack.Navigator>
     );
   };
-  export default MyStack;
+  export default MyStackhome;
   const styles = StyleSheet.create({
     container: {
       flex: 1,
