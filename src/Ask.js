@@ -6,7 +6,7 @@ import Header from './Header';
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
-const Home = ({navigation}) => {
+const Ask = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.bigtitle}>首頁</Text>
@@ -15,8 +15,7 @@ const Home = ({navigation}) => {
       source={require('../images/background.png')}
       style={styles.background}
       />
-      <View>
-      </View>
+      
       <View style={styles.index}>
         <Text style={styles.todayswork}>今日的活動預定</Text>
         <View>
@@ -37,11 +36,12 @@ const Home = ({navigation}) => {
             </TouchableOpacity>
         </View>
       </View>
+      
     </View>
   );
 }
 
-export default Home;
+export default Ask;
 
 const styles = StyleSheet.create({
   container: {

@@ -4,20 +4,23 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'rea
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
-const Addcloth = () => {
+const Addcloth = ({route,navigation}) => {
     return (
       <View style={styles.container}>
         <View style={{height:500,}}>
 
         </View>
-        
+        <Image
+          source={{uri:route.params}}
+          style={{width:200,height:200,position:'absolute',top:200,left:60,zIndex:5}}
+        />
         <TouchableOpacity
           style={styles.button}
-          onPress={function(){console.log('按到了!')}}
+          onPress={() => navigation.pop(1)}
         >
           <Text style={styles.buttonword}>Press Here</Text>
         </TouchableOpacity>
-       
+        
       </View>
     );
   };

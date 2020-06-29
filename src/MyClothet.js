@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ScrollView } from 'react-native';
-import Home from './Home';
 import Hint from './Hint';
 import Header from './Header';
+import Expand from './Expandedcontent';
+import MyclothetSelector from './MyclotheSelector';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
@@ -16,13 +17,14 @@ function MyClothet({navigation}){
       source={require('../images/background.png')}
       style={styles.background}
       />
-      <TouchableOpacity style={styles.leaderbutton} onPress={() => navigation.navigate('Leaderboard')}>
+      <TouchableOpacity style={styles.leaderbutton} onPress={() => navigation.navigate('Leaderboard',navigation)}>
         <Text style={styles.leaderword}>排行</Text>
         <Image
         source={require('../images/leaderboard.png')}
         style={styles.leaderboard}
         />
       </TouchableOpacity>
+      <Expand></Expand>
       <View style={styles.index1}>
         <Image
         source={require('../images/whiteback.png')}
@@ -52,20 +54,7 @@ function MyClothet({navigation}){
       <TouchableOpacity style={styles.button} onPress={function(){console.log('set todays outfit')}}>
         <Text style={styles.buttonword}>設定為今日搭配</Text>
       </TouchableOpacity>
-      <ScrollView style={{zIndex:5}}>
-        <View style={styles.selectlist}>
-          <View style={styles.list}> 
-            <Text style={styles.word1}>上衣</Text>
-            <Text style={styles.word}>下身</Text>
-            <Text style={styles.word}>外套</Text>
-            <Text style={styles.word}>搭配</Text>
-            <Image
-            source={require('../images/plusbtn.png')}
-            style={styles.plusbtn}
-            />
-          </View>
-        </View>
-      </ScrollView>
+      <MyclothetSelector></MyclothetSelector>
     </View>
   );
 }
@@ -113,7 +102,7 @@ const styles = StyleSheet.create({
   index1:{
     width:SCREENWIDTH*0.9146,
     height:SCREENHEIGHT*0.6832,
-    zIndex:1,
+    zIndex:2,
     alignSelf:'center',
     position:'absolute',
     top:SCREENHEIGHT-8,
