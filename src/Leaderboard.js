@@ -1,6 +1,6 @@
 import React, { useState }  from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
-
+import LeaderSelector from './LeaderSelector';
 import Header from './Header';
 
 const SCREENWIDTH = Dimensions.get('window').width;
@@ -38,12 +38,7 @@ const Leaderboard = ({navigation}) => {
                 <Text style={styles.word4}>搭配</Text>
             </TouchableOpacity>
           </View>
-          <Image
-          source={require('../images/crown.png')}
-          style={styles.crown}
-          />
-          <View style={{backgroundColor:'white',borderRadius:19,width:240,height:374,alignSelf:'center',position:'absolute',top:214}}>
-          </View>
+          <LeaderSelector></LeaderSelector>
           <Text style={styles.rateword}>穿搭頻率</Text>
           <Image
           source={require('../images/rate.png')}
@@ -87,7 +82,7 @@ const Leaderboard = ({navigation}) => {
     background:{
       width:SCREENWIDTH, 
       height:SCREENHEIGHT,
-      marginTop:SCREENHEIGHT*0.12,
+      marginTop:SCREENHEIGHT*0.06,
     },
     selectword:{
       flexDirection:'row',
@@ -123,5 +118,12 @@ const Leaderboard = ({navigation}) => {
         color:'white',
         position:'absolute',
         top:SCREENHEIGHT*0.7798,
+      },
+      leaderoutfit1:{
+        width:240,height:374,
+        resizeMode:"stretch",
+        alignSelf:'center',
+        position:'absolute',
+        top:214,
       },
   });

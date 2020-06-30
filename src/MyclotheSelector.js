@@ -39,7 +39,16 @@ const TypeSelector = () => {
             <View style={[styles.box1,FirstBoxPosition === "left" ? null : styles.moveRight1]}>
                 <View style={styles.content1}>
                     <TouchableOpacity onPress={toggleFirstBox}>
-                        <Text>fhafeoasfseifjispjfd</Text>
+                      <View style={{flexDirection:'row',alignSelf:"flex-end"}}>
+                          <Text style={styles.button1word1}>上衣</Text>
+                          <Text style={styles.button1word2}>下身</Text>
+                          <Text style={styles.button1word3}>外套</Text>
+                          <Text style={styles.button1word4}>搭配</Text>
+                          <Image
+                          source={require('../images/plusbtn.png')}
+                          style={styles.plusbtn}
+                          />
+                      </View>
                     </TouchableOpacity>
                     <SwiperTop></SwiperTop>
                     
@@ -121,7 +130,7 @@ container: {
   box1: {
     height: 628,
     width: 415,
-    borderRadius: 5,
+    borderRadius: 17,
     margin: 8,
     marginTop:-45,
     backgroundColor: "#333333",
@@ -130,8 +139,7 @@ container: {
   },
   content1:{
     alignSelf:'center',
-    
-    marginTop:10,
+    marginTop:0,
   },
   moveRight1: {
     top:-500,

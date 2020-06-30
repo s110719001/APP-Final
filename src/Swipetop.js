@@ -7,7 +7,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   Platform,
-  Image,
 } from 'react-native';
 
 const ENTRIES1 = [
@@ -52,20 +51,17 @@ const MyCarousel = props => {
   }, []);
 
   const renderItem = ({item, index}, parallaxProps) => {
+    
     return (
       <View style={styles.item}>
-          <Image
-          source={require('../images/clothethanger.png')}
-          style={{width:74.71,height:42.21,resizeMode:'stretch',alignSelf:'center'}}
-          />
         <ParallaxImage
-          source={require('../images/clothexample/cloth2.png')}
+          source={{uri: item.illustration}}
           containerStyle={styles.imageContainer}
           style={styles.image}
-          parallaxFactor={0.3}
+          parallaxFactor={0}
           {...parallaxProps}
         />
-        <Text style={styles.title} numberOfLines={3}>
+        <Text style={styles.title} numberOfLines={2}>
           {item.title}
         </Text>
       </View>
@@ -74,13 +70,11 @@ const MyCarousel = props => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.classtitle}>短袖</Text>
-      <View style={styles.bar}></View>
       <Carousel
         ref={carouselRef}
-        sliderWidth={3500}
-        sliderHeight={180}
-        itemWidth={200}
+        sliderWidth={340.76}
+        sliderHeight={screenWidth}
+        itemWidth={180}
         data={entries}
         renderItem={renderItem}
         hasParallaxImages={true}
@@ -93,16 +87,14 @@ export default MyCarousel;
 
 const styles = StyleSheet.create({
   container: {
-    top:25,
-    height:400,
+    marginTop:32,
   },
   item: {
-    flex:1,
     width: 180,
-    height: 180,
+    height: 219,
   },
   imageContainer: {
-    
+    flex: 1,
     marginBottom: Platform.select({ios: 0, android: 1}), // Prevent a random Android rendering issue
     backgroundColor: 'white',
     borderRadius: 8,
@@ -110,20 +102,5 @@ const styles = StyleSheet.create({
   image: {
     ...StyleSheet.absoluteFillObject,
     resizeMode: 'cover',
-  },
-  classtitle:{
-    fontSize:16,
-    color:'#FCF4E9',
-    alignSelf:'center',
-    marginRight:200,
-    marginBottom:4,
-  },
-  bar:{
-    borderColor:"#FCF4E9",
-    width:328,
-    height:0,
-    borderWidth:1.5,
-    alignSelf:'center',
-    marginBottom:-6,
   },
 });

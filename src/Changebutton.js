@@ -1,84 +1,199 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/Ionicons';
+import React, { useState } from "react";
+import { LayoutAnimation, Platform, StyleSheet, Text, TouchableOpacity, UIManager, View, Button, Image } from "react-native";
+import { DangerZone } from "expo";
+import SwiperTop from './Swipetop';
+import SwipeBottom from './Swipebottom';
 
+const TypeSelector = () => {
+  const [FirstBoxPosition, setFirstBoxPosition] = useState("left");
+  const toggleFirstBox = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+    setFirstBoxPosition(FirstBoxPosition === "left" ? "right" : "left");
+};
+  return (
+        <View style={styles.container}>
+            <View style={[styles.buttonContainer1]}>
+                <TouchableOpacity
+                 onPress={toggleFirstBox}>
+                        <Text style={styles.button1word1}>自己搭</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={[styles.box1,FirstBoxPosition === "left" ? null : styles.moveRight1]}>
+                <View style={styles.content1}>
+                    <Text style={styles.word}>這件衣服更適合</Text>
+                    <TouchableOpacity style={styles.button1} onPress={toggleFirstBox}>
+                        <Text style={styles.word1}>重要活動</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button2} onPress={toggleFirstBox}>
+                        <Text style={styles.word2}>工作</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button3} onPress={toggleFirstBox}>
+                        <Text style={styles.word3}>上課</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button4} onPress={toggleFirstBox}>
+                        <Text style={styles.word4}>休閒</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button5} onPress={toggleFirstBox}>
+                        <Text style={styles.word5}>運動</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button6} onPress={toggleFirstBox}>
+                        <Text style={styles.word6}>確定</Text>
+                    </TouchableOpacity>
+                    
+                </View>
+            </View>
+        </View>
+  );
+};
 
-export default class Changebutton extends Component {
-  render() {
-    return (
-      <View style={{ flex:1,marginTop:-505,marginLeft:235,marginBottom:7}}>
-        {/* Rest of the app comes ABOVE the action button component !*/}
-        <ActionButton  position="center" bgColor='white' renderIcon={active => active ? (<Icon name="agree" style={styles.sure}>確定</Icon> ) : (<Icon name="do it yourself" style={styles.change}>自己來</Icon>)} hideShadow={true} active={false} buttonColor="#5E6B7B" size={40} spacing={15} outRangeScale='1' degrees='0' >
-          <ActionButton.Item size={40} buttonColor={null} onPress={() => console.log("notes tapped!")}>
-            <Icon style={styles.title}>這套衣服更適合</Icon>
-          </ActionButton.Item>
-          <ActionButton.Item size={40} buttonColor='#5E6B7B' onPress={() => console.log("notes tapped!")}>
-            <Icon style={styles.textcontainer}>重要活動</Icon>
-          </ActionButton.Item>
-          <ActionButton.Item size={40} buttonColor='#5E6B7B' onPress={() => {}}>
-            <Icon style={styles.textcontainer}>工作</Icon>
-          </ActionButton.Item>
-          <ActionButton.Item size={40} buttonColor='#5E6B7B' onPress={() => {console.log('上課!')}}>
-            <Icon style={styles.textcontainer}>上課</Icon>
-          </ActionButton.Item>
-          <ActionButton.Item size={40} buttonColor='#5E6B7B' onPress={() => {}}>
-            <Icon style={styles.textcontainer}>休閒</Icon>
-          </ActionButton.Item>
-          <ActionButton.Item size={40} buttonColor='#5E6B7B' onPress={() => {}}>
-            <Icon style={styles.textcontainer}>運動</Icon>
-          </ActionButton.Item>
-        </ActionButton>
-      </View>
-    );
-  }
-
-}
+export default TypeSelector;
 
 const styles = StyleSheet.create({
-  button:{
-    fontSize:16,
+container: {
+    justifyContent: "center",
+    marginTop:14,
+    top:-214,
+    left:73,
+    alignSelf:"center",
+    
   },
-  change:{
+  before1:{
+    alignItems:'center',
     width:80,
     height:43,
     borderRadius:10,
     backgroundColor:'#5E6B7B',
-    fontSize:16,
-    color:'white',
-    textAlign:'center',
-    paddingTop:13,
-    alignSelf:'flex-start',
+    marginTop:22,
+    justifyContent:"center",
   },
-  sure:{
+  after1:{
+    justifyContent:'center',
     width:76,
     height:40,
     borderRadius:10,
-    backgroundColor:'#5674AC',
-    fontSize:16,
-    color:'white',
-    textAlign:'center',
-    paddingTop:11.5,
-    alignSelf:'flex-start'
+    backgroundColor:'#FCF4E9',
+    
   },
-  title:{
+  
+  button1word1:{
+    width:80,
+    height:43,
+    backgroundColor:"#5E6B7B",
+    color:'#FCF4E9',
+    fontSize:16,
+    borderRadius:10,
+    textAlign:"center",
+    textAlignVertical:"center",
+  },
+  box1: {
+    height: 465,
+    width: 180,
+    borderRadius: 10,
+    margin: 8,
+    marginTop:-45,
+    backgroundColor: "white",
+    borderColor:"#333333",
+    borderWidth:0.2,
+    opacity:0,
+  },
+  content1:{
+    alignSelf:'center',
+    marginTop:30,
+  },
+  word:{
+    color:"#616161",
+    fontSize:16,
+    marginTop:-15,
+  },
+  botton1:{
+    
+  },
+  botton2:{
+
+  },
+  botton3:{
+
+  },
+  botton4:{
+
+  },
+  botton5:{
+
+  },
+  botton6:{
+    alignSelf:"flex-end",
+  },
+  word1:{
+    color:"#FCF4E9",
+    backgroundColor:"#5E6B7B",
     width:122,
     height:40,
+    textAlign:"center",
+    textAlignVertical:"center",
     borderRadius:10,
-    backgroundColor:null,
-    fontSize:16,
-    color:'#616161',
-    textAlign:'center',
-    paddingTop:11.5,
+    marginTop:16,
   },
-  textcontainer:{
+  word2:{
+    color:"#FCF4E9",
+    backgroundColor:"#5E6B7B",
     width:122,
     height:40,
+    textAlign:"center",
+    textAlignVertical:"center",
     borderRadius:10,
-    backgroundColor:'#5E6B7B',
-    fontSize:16,
-    color:'white',
-    textAlign:'center',
-    paddingTop:11.5,
+    marginTop:16,
+  },
+  word3:{
+    color:"#FCF4E9",
+    backgroundColor:"#5E6B7B",
+    width:122,
+    height:40,
+    textAlign:"center",
+    textAlignVertical:"center",
+    borderRadius:10,
+    marginTop:16,
+  },
+  word4:{
+    color:"#FCF4E9",
+    backgroundColor:"#5E6B7B",
+    width:122,
+    height:40,
+    textAlign:"center",
+    textAlignVertical:"center",
+    borderRadius:10,
+    marginTop:16,
+  },
+  word5:{
+    color:"#FCF4E9",
+    backgroundColor:"#5E6B7B",
+    width:122,
+    height:40,
+    textAlign:"center",
+    textAlignVertical:"center",
+    borderRadius:10,
+    marginTop:16,
+  },
+  word6:{
+    color:"#FCF4E9",
+    backgroundColor:"#5674AC",
+    width:76,
+    height:40,
+    textAlign:"center",
+    textAlignVertical:"center",
+    borderRadius:10,
+    marginTop:20,
+    alignSelf:"flex-end",
+  },
+  moveRight1: {
+    top:-316,
+    opacity:1,
+    zIndex:6,
+    left:37
+  },
+  buttonContainer1: {
+    alignSelf: "flex-end",
+    top:20,
   },
 });
+
+

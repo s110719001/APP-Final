@@ -19,19 +19,19 @@ const Ask = ({navigation}) => {
       <View style={styles.index}>
         <Text style={styles.todayswork}>今日的活動預定</Text>
         <View>
-            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('重要活動'),navigation.navigate('TodaysOutfit')}}>
+            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('重要活動'),navigation.navigate('TodaysOutfit',1)}}>
                 <Text style={styles.buttontitle}>重要活動</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('工作'),navigation.navigate('TodaysOutfit')}}>
+            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('工作'),navigation.navigate('TodaysOutfit',2)}}>
                 <Text style={styles.buttontitle}>工作</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('上課'),navigation.navigate('TodaysOutfit')}}>
+            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('上課'),navigation.navigate('TodaysOutfit',3)}}>
                 <Text style={styles.buttontitle}>上課</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('休閒'),navigation.navigate('TodaysOutfit')}}>
+            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('休閒'),navigation.navigate('TodaysOutfit',4)}}>
                 <Text style={styles.buttontitle}>休閒</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('運動'),navigation.navigate('TodaysOutfit')}}>
+            <TouchableOpacity style={styles.buttons} onPress={function(){console.log('運動'),navigation.navigate('TodaysOutfit',5)}}>
                 <Text style={styles.buttontitle}>運動</Text>
             </TouchableOpacity>
         </View>
