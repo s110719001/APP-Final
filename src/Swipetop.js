@@ -7,33 +7,21 @@ import {
   StyleSheet,
   TouchableOpacity,
   Platform,
+  Image,
 } from 'react-native';
 
 const ENTRIES1 = [
   {
-    title: 'Beautiful and dramatic Antelope Canyon',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/UYiroysl.jpg',
+    illustration: 'https://upload.cc/i1/2020/06/30/Cdir7v.png',
   },
   {
-    title: 'Earlier this morning, NYC',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/UPrs1EWl.jpg',
+    illustration: 'https://upload.cc/i1/2020/06/30/iLOYWr.png',
   },
   {
-    title: 'White Pocket Sunset',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    illustration: 'https://i.imgur.com/MABUbpDl.jpg',
+    illustration: 'https://upload.cc/i1/2020/06/30/oP9k4B.png',
   },
   {
-    title: 'Acrocorinth, Greece',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/KZsmUi2l.jpg',
-  },
-  {
-    title: 'The lone tree, majestic landscape of New Zealand',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
+    illustration: 'https://upload.cc/i1/2020/06/30/sZBziR.png',
   },
 ];
 const {width: screenWidth} = Dimensions.get('window');
@@ -51,9 +39,13 @@ const MyCarousel = props => {
   }, []);
 
   const renderItem = ({item, index}, parallaxProps) => {
-    
+     
     return (
       <View style={styles.item}>
+        <Image
+        source={require('../images/hanger1.png')}
+        style={styles.hanger}
+        />
         <ParallaxImage
           source={{uri: item.illustration}}
           containerStyle={styles.imageContainer}
@@ -70,10 +62,12 @@ const MyCarousel = props => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>短袖</Text>
+      <View style={styles.bar}></View>
       <Carousel
         ref={carouselRef}
         sliderWidth={340.76}
-        sliderHeight={screenWidth}
+        sliderHeight={200}
         itemWidth={180}
         data={entries}
         renderItem={renderItem}
@@ -88,6 +82,7 @@ export default MyCarousel;
 const styles = StyleSheet.create({
   container: {
     marginTop:32,
+    height:225,
   },
   item: {
     width: 180,
@@ -102,5 +97,26 @@ const styles = StyleSheet.create({
   image: {
     ...StyleSheet.absoluteFillObject,
     resizeMode: 'cover',
+  },
+  hanger:{
+    width:74.71,
+    height:42.21,
+    alignSelf:"center",
+    marginBottom:-2,
+    zIndex:6,
+  },
+  text:{
+    color:"#FCF4E9",
+    alignSelf:"flex-start",
+    fontSize:16,
+  },
+  bar:{
+    width:340.76,
+    height:0,
+    borderColor:"#FCF4E9",
+    borderWidth:1.2,
+    marginBottom:-6,
+    borderRadius:10,
+    marginTop:5,
   },
 });

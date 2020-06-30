@@ -51,7 +51,7 @@ const TypeSelector = () => {
                       </View>
                     </TouchableOpacity>
                     <SwiperTop></SwiperTop>
-                    
+                    <SwipeBottom></SwipeBottom>
                 </View>
             </View>
         </View>
@@ -138,7 +138,7 @@ container: {
     opacity:0,
   },
   content1:{
-    alignSelf:'center',
+    alignSelf:'flex-end',
     marginTop:0,
   },
   moveRight1: {
