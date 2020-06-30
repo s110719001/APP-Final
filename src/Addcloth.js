@@ -16,7 +16,7 @@ const Addcloth = ({route,navigation}) => {
         />
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.pop(1)}
+          onPress={() => navigation.pop(2)}
         >
           <Text style={styles.buttonword}>Press Here</Text>
         </TouchableOpacity>

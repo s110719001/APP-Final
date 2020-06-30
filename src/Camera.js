@@ -7,7 +7,7 @@ import { Slider } from 'react-native-elements';
 import TypeSelector1 from './Typeselector1';
 
  
-export default function App({ photouri = 0,navigation}) {
+export default function App({navigation, photouri = 0}) {
   var photodata;
   enableScroll = () => this.setState({ scrollEnabled: true });
  disableScroll = () => this.setState({ scrollEnabled: false });
@@ -50,7 +50,7 @@ if (hasPermission === null) {
             <View style={{ 
                borderWidth: 5,
                borderRadius:50,
-               borderColor: '#757575',
+               borderColor: 'white',
                height: 74,
                width:74,
                display: 'flex',
@@ -73,8 +73,8 @@ if (hasPermission === null) {
         style={{zIndex:6,width:320,height:276,position:'absolute',alignSelf:'center',top:186}}
         />
         <View style={{width:415,height:30,backgroundColor:'#333333',position:'absolute',top:0,left:0,}}></View>
-        <View style={{backgroundColor:"#333333",width:420,height:158,borderTopStartRadius:17,borderTopEndRadius:17}}>
-          <View style={{flexDirection:'row',justifyContent:'center'}}>
+        <View style={{backgroundColor:"#333333",width:420,height:158,borderTopStartRadius:17,borderTopEndRadius:17,marginBottom:-8}}>
+          <View style={{flexDirection:'row',justifyContent:'center',marginTop:8}}>
             <Text style={{fontSize:16,color:'white',marginTop:25}}>休閒</Text>
             <View style={{alignSelf:'center',alignItems:'center',justifyContent:'center',flexDirection:"row",position:'absolute',top:22,backgroundColor:'#656565',width:238,height:30,borderRadius:13}}>
               <Text style={{fontSize:16,color:'#FCF4E9'}}>1</Text>
@@ -91,14 +91,15 @@ if (hasPermission === null) {
             style={{backgroundColor:'transparent',width:238,height:30,borderRadius:13,marginTop:22,marginLeft:25}}
             trackStyle={{backgroundColor:'#656565',width:120,height:0,borderRadius:13}}
             thumbTintColor='#333333'
-            thumbStyle={{width:40,height:40,borderWidth:5,borderColor:'white',marginTop:-5,borderRadius:20}}
+            thumbStyle={{width:40,height:40,marginTop:-7,borderColor:'#989898',borderWidth:0.5,borderRadius:20}}
             />
             <Text style={{fontSize:16,color:'white',marginTop:25,marginLeft:25}}>正式</Text>
           </View>
-          <Text style={{fontSize:16,color:'white',position:'absolute',top:80,left:35}}>類別</Text>
+          <View style={{flexDirection:'row',marginTop:10}}>
+          <Text style={{fontSize:16,color:'white',marginTop:26,marginLeft:35,marginRight:-70}}>類別</Text>
           
             <TypeSelector1></TypeSelector1>
-          
+            </View>
         </View>
       </Camera>
     </View>

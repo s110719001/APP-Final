@@ -19,7 +19,7 @@ const Community = () => {
         style={styles.background}
         />
         
-        <ScrollView style={{position:'absolute',top:103,alignSelf:'center',flex:1}}>
+        <ScrollView showsVerticalScrollIndicator={false} style={{position:'absolute',top:103,alignSelf:'center',flex:1,height:610}}>
         <View style={{}}>
             
             <View style={{flexDirection:'row'}}>
@@ -38,7 +38,7 @@ const Community = () => {
                 style={styles.outfit1}
                 />
             </View>
-            <View style={{flexDirection:'row'}}>
+            <View style={{flexDirection:'row',marginTop:2}}>
             <Image
             source={require('../images/community/outfit11.png')}
             style={styles.outfit111}
@@ -103,18 +103,18 @@ const Community = () => {
         marginTop:10,
     },
     outfit11:{
-        width:130,
-        height:294,
-        resizeMode:'stretch', 
+        width:105,
+        resizeMode:'stretch',
+        height:327,
         marginTop:10, 
-        marginLeft:-4,
+        marginLeft:17,
     },
     outfit111:{
-        width:130,
-        height:294,
-        resizeMode:'stretch', 
+        width:105,
+        resizeMode:'stretch',
+        height:327,
         marginTop:10, 
-        marginLeft:-13,
+        
     },
     plusbtn:{
         width:55,

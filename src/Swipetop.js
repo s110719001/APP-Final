@@ -109,14 +109,16 @@ const styles = StyleSheet.create({
     color:"#FCF4E9",
     alignSelf:"flex-start",
     fontSize:16,
+    marginLeft:5,
   },
   bar:{
-    width:340.76,
+    width:346.76,
     height:0,
     borderColor:"#FCF4E9",
     borderWidth:1.2,
     marginBottom:-6,
     borderRadius:10,
     marginTop:5,
+    marginLeft:5,
   },
 });

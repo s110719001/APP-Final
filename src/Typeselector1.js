@@ -73,7 +73,7 @@ const [ThirdBoxPosition, setThirdBoxPosition] = useState("left");
             <View style={[styles.box3,ThirdBoxPosition === "left" ? null : styles.moveRight3]}>
                 <View style={styles.content3}>
                     <TouchableOpacity onPress={toggleThirdBox}>
-                        <Text style={styles.button3word1}>厚</Text>
+                        <Text style={[styles.button3word1]}>厚</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={toggleThirdBox}>
                         <Text style={styles.button3word2}>薄</Text>
@@ -128,12 +128,14 @@ container: {
   
   button1word1:{
     color:'#232E3B',
-    fontSize:12,
+    fontSize:14,
+    marginTop:2.5,
   },
   button1word2:{
     color:'#232E3B',
-    fontSize:12,
+    fontSize:14,
     marginLeft:24,
+    marginTop:2.5,
   },
   box1: {
     height: 45,
@@ -200,28 +202,29 @@ container: {
   
   button2word1:{
     color:'#232E3B',
-    fontSize:12,
-    marginTop:-6,
+    fontSize:14,
+    marginTop:-6.5,
   },
   button2word11:{
     color:'#232E3B',
-    fontSize:12,
+    fontSize:14,
   },
   button2word2:{
     color:'#232E3B',
-    fontSize:12,
+    fontSize:14,
     marginLeft:24,
+    marginTop:3.5
   },
   button2word3:{
     color:'#232E3B',
-    fontSize:12,
+    fontSize:14,
     marginLeft:24,
-    marginTop:-6,
+    marginTop:-6.5,
   },
   button2word33:{
     color:'#232E3B',
-    fontSize:12,
-    marginLeft:24,
+    fontSize:14,
+    marginLeft:24.6,
   },
   box2: {
     height: 45,
@@ -304,16 +307,20 @@ container: {
   button3word1:{
     color:'#232E3B',
     fontSize:14,
+    marginTop:2.8,
+    marginLeft:-2
   },
   button3word2:{
     color:'#232E3B',
     fontSize:14,
     marginLeft:24,
+    marginTop:2.8,
   },
   button3word3:{
     color:'#232E3B',
     fontSize:14,
     marginLeft:24,
+    marginTop:2.8,
   },
   box3: {
     height: 45,

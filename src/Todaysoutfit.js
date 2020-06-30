@@ -1,15 +1,52 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, Picker, TouchableOpacity, AsyncStorage } from 'react-native';
+import { LayoutAnimation,StyleSheet, Text, View, Dimensions, Image, Picker, TouchableOpacity, AsyncStorage } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import ModalDropdown from 'react-native-modal-dropdown';
 import Header from './Header';
 import Changebutton from './Changebutton';
 
+const Btn1press = ({btn1press,btn2press,btn3press}) => {
+    return(
+        btn1press = true,
+        btn2press = false,
+        btn3press = false
+    );
+}
+const Btn2press = ({btn1press,btn2press,btn3press}) => {
+    return(
+        btn1press = false,
+        btn2press = true,
+        btn3press = false
+    );
+}
+const Btn3press = ({btn1press,btn2press,btn3press}) => {
+    return(
+        btn1press = false,
+        btn2press = false,
+        btn3press = true
+    );
+}
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
 const TodaysOutfit = ({route}) => {
+    const [FirstBoxPosition, setFirstBoxPosition] = useState(false);
+    const toggleFirstBox = () => {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.default);
+      setFirstBoxPosition(FirstBoxPosition === true ? false : true);
+    }
+      const [SecondBoxPosition, setSecondBoxPosition] = useState(true);
+    const toggleSecondBox = () => {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.default);
+      setSecondBoxPosition(SecondBoxPosition === true ? false : true);
+    }
+      const [ThirdBoxPosition, setThirdBoxPosition] = useState(false);
+    const toggleThirdBox = () => {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.default);
+      setThirdBoxPosition(ThirdBoxPosition === true ? false : true);
+    }
+
     const [selectedValue, setSelectedValue] = useState(route.params);
     return (
       <View style={styles.container}>
@@ -22,15 +59,22 @@ const TodaysOutfit = ({route}) => {
         <View style={styles.index1}>
             <View style={styles.titlebar}></View>
             <View style={styles.titles}>
-                <Text style={styles.title1}>昨日</Text>
-                <Text style={styles.title2}>今日搭配</Text>
-                <Text style={styles.title3}>明日</Text> 
+                <TouchableOpacity onPress={toggleFirstBox}>
+                <Text style={[styles.title1,FirstBoxPosition === false || SecondBoxPosition === true || ThirdBoxPosition === true ? null : styles.title11]}>昨日</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={toggleSecondBox}>
+                <Text style={[styles.title22,SecondBoxPosition === true || FirstBoxPosition === false || ThirdBoxPosition === false ? null : styles.title2]}>今日搭配</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={toggleThirdBox}>
+                <Text style={[styles.title3,ThirdBoxPosition === false || FirstBoxPosition === true || SecondBoxPosition === true ? null : styles.title33]}>明日</Text> 
+                </TouchableOpacity>
             </View>
         <View style={styles.words}>
                 <Text style={styles.word1}>我今天要</Text>
                 <View style={styles.container1}>
                 <View style={styles.bar}></View>
             <Picker
+            
             selectedValue={selectedValue}
             style={{ height: 50, width: 130,top:-35 }}
             onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
@@ -136,16 +180,39 @@ const TodaysOutfit = ({route}) => {
         fontSize:18,
         color:'white',
         marginRight:30,
+        
+        
     },
-    title2:{
+    title11:{
         fontSize:20,
         color:'white',
-        marginTop:-2
+        marginRight:30,
+        
+        
+    },
+    title2:{
+        fontSize:18,
+        color:'white',
+        marginTop:-2,
+        
+    },
+    title22:{
+        fontSize:20,
+        color:'white',
+        marginTop:-2,
+        
     },
     title3:{
         fontSize:18,
         color:'white',
         marginLeft:30,
+        
+    },
+    title33:{
+        fontSize:20,
+        color:'white',
+        marginLeft:30,
+        
     },
     words:{
         flexDirection:'row',

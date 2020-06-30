@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     color:"#FCF4E9",
     alignSelf:"flex-start",
     fontSize:16,
+    marginLeft:5,
   },
   bar:{
     width:340.76,
@@ -109,5 +110,6 @@ const styles = StyleSheet.create({
     marginBottom:-6,
     borderRadius:10,
     marginTop:5,
+    marginLeft:5,
   },
 });

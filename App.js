@@ -48,7 +48,7 @@ export default function App() {
       <Tab.Navigator 
        tabBarOptions={{
          style:styles.tabbar,
-         tabStyle:{borderWidth:0},
+         tabStyle:{borderWidth:0,marginBottom:5},
          activeTintColor:'#B4CCFA',
          inactiveTintColor:'#FCF4E9',
        }}
@@ -94,7 +94,7 @@ export default function App() {
             }
           };
         }}/>
-        <Tab.Screen name="社群" component={MyStackLogin} 
+        <Tab.Screen name="社群" component={Community} 
         options={props => {
           return{
             tabBarVisible: !props.route.state || props.route.state.index === 0,
@@ -129,6 +129,8 @@ const styles = StyleSheet.create({
     borderTopColor:'#333333',
     borderTopWidth:2,
     color:'#FCF4E9',
+    height:60,
+    
   },
   tabicon1:{
     width:20,

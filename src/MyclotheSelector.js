@@ -10,10 +10,10 @@ if (
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
-const TypeSelector = () => {
+const TypeSelector = ({navigation}) => {
   const [FirstBoxPosition, setFirstBoxPosition] = useState("left");
   const toggleFirstBox = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setFirstBoxPosition(FirstBoxPosition === "left" ? "right" : "left");
 };
 
@@ -38,18 +38,20 @@ const TypeSelector = () => {
             </View>
             <View style={[styles.box1,FirstBoxPosition === "left" ? null : styles.moveRight1]}>
                 <View style={styles.content1}>
-                    <TouchableOpacity onPress={toggleFirstBox}>
+                  <TouchableOpacity onPress={toggleFirstBox}>
                       <View style={{flexDirection:'row',alignSelf:"flex-end"}}>
                           <Text style={styles.button1word1}>上衣</Text>
                           <Text style={styles.button1word2}>下身</Text>
                           <Text style={styles.button1word3}>外套</Text>
                           <Text style={styles.button1word4}>搭配</Text>
+                          <TouchableOpacity onPress={() => navigation.navigate('Camera',navigation)}>
                           <Image
                           source={require('../images/plusbtn.png')}
                           style={styles.plusbtn}
                           />
+                          </TouchableOpacity>
                       </View>
-                    </TouchableOpacity>
+                      </TouchableOpacity>
                     <SwiperTop></SwiperTop>
                     <SwipeBottom></SwipeBottom>
                 </View>
@@ -82,7 +84,7 @@ container: {
     height:45,
     borderRadius:7,
     backgroundColor:'#FCF4E9',
-    
+    right:120,
   },
   addcloth:{
     width:405,
@@ -106,19 +108,19 @@ container: {
   button1word2:{
     color:'#FCF4E9',
     fontSize:16,
-    marginLeft:55,
+    marginLeft:58,
     marginTop:8,
   },
   button1word3:{
     color:'#FCF4E9',
     fontSize:16,
-    marginLeft:55,
+    marginLeft:58,
     marginTop:8,
   },
   button1word4:{
     color:'#FCF4E9',
     fontSize:16,
-    marginLeft:55,
+    marginLeft:58,
     marginTop:8,
   },
   plusbtn:{
@@ -140,6 +142,7 @@ container: {
   content1:{
     alignSelf:'flex-end',
     marginTop:0,
+    
   },
   moveRight1: {
     top:-500,

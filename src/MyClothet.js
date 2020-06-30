@@ -54,7 +54,7 @@ function MyClothet({navigation}){
       <TouchableOpacity style={styles.button} onPress={function(){console.log('set todays outfit')}}>
         <Text style={styles.buttonword}>設定為今日搭配</Text>
       </TouchableOpacity>
-      <MyclothetSelector></MyclothetSelector>
+      <MyclothetSelector navigation={navigation}></MyclothetSelector>
     </View>
   );
 }

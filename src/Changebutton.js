@@ -7,7 +7,7 @@ import SwipeBottom from './Swipebottom';
 const TypeSelector = () => {
   const [FirstBoxPosition, setFirstBoxPosition] = useState("left");
   const toggleFirstBox = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setFirstBoxPosition(FirstBoxPosition === "left" ? "right" : "left");
 };
   return (
@@ -92,9 +92,8 @@ container: {
     margin: 8,
     marginTop:-45,
     backgroundColor: "white",
-    borderColor:"#333333",
-    borderWidth:0.2,
     opacity:0,
+    left:35,
   },
   content1:{
     alignSelf:'center',
