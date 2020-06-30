@@ -3,7 +3,7 @@ import * as firebase from "firebase";
 import { View, StyleSheet,Dimensions,TouchableOpacity,Text,Image } from "react-native";
 import { Button } from "react-native-elements";
 import Input from "../components/Input";
-
+import Header from './Header';
 
 
 const SCREENWIDTH = Dimensions.get('window').width;
@@ -11,7 +11,7 @@ const SCREENHEIGHT = Dimensions.get('window').height;
 
 
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -44,6 +44,8 @@ const LoginScreen = () => {
 
   return (
     <View>
+        <Text style={styles.bigtitle}>登入</Text>
+        <Header></Header>
         <Image
         source={require('../images/background.png')}
         style={styles.background}
@@ -106,12 +108,21 @@ const LoginScreen = () => {
 
 const styles = StyleSheet.create({
     formStyle: {
-        marginTop: 190,
+        marginTop: 210,
         zIndex:3,
         display:'flex',
         alignItems:'center',
         
     },
+    bigtitle:{
+      fontSize:18,
+      color:'white',
+      fontWeight:'bold',
+      position:'absolute',
+      top:40,
+      alignSelf:'center',
+      zIndex:5,
+  },
     background: {
         width:SCREENWIDTH,
         height:SCREENHEIGHT,
@@ -133,29 +144,28 @@ const styles = StyleSheet.create({
         alignItems:'center',
         zIndex:3,
     },
-    // buttontest:{
-    //     backgroundColor:'#5E6B7B',
-    //     width:95,
-    //     height:43,
-    //     borderRadius:5,
-    //     position:'absolute',
-    //     top:250,
-    //     left:232,
-    //     flexDirection:'row',
-    //     alignItems:'center',
-    //     zIndex:3,
-    // },
+     buttontest:{
+         backgroundColor:'#5E6B7B',
+         width:95,
+         height:43,
+         borderRadius:5,
+         justifyContent:"center",
+         zIndex:3,
+         marginTop:50,
+         marginLeft:150,
+     },
     buttonword:{
          textAlign:'center',
          color:'white',
          fontSize:16,
-         marginLeft:25,
+         textAlignVertical:"center",
     },
     login:{
          flexDirection:'row',
          position:'absolute',
-         top:70,
-         alignSelf:'center'
+         top:80,
+         alignSelf:'center',
+         marginTop:30,
     },
     loginarrow:{
          width:24,
@@ -164,14 +174,15 @@ const styles = StyleSheet.create({
     title:{
          fontSize:48,
          color:'white',
-         left:120,
+         alignSelf:"center",
          display:'flex',
-         alignItems:'center',
+         
     },
     logo:{
+        alignSelf:'flex-end',
          width:65,
          height:65,
-         marginLeft:170,
+         marginLeft:80,
     },
 });
 

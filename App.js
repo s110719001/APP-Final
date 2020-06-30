@@ -1,6 +1,6 @@
 import React,{createContext, useState} from 'react';
 import * as firebase from "firebase";
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ask from './src/Ask'
@@ -22,7 +22,7 @@ import Community from './src/Community';
 import Login,{ StoreContext, StoreProvider } from './src/Login';
 import MyStackLogin from './src/MyStackLogin';
 import LeaderSelector from './src/LeaderSelector';
-
+import Test from './src/Test';
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 const Tab = createBottomTabNavigator();
@@ -42,7 +42,7 @@ export default function App() {
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
-
+  
   return (
     <NavigationContainer>
       <Tab.Navigator 
@@ -94,7 +94,7 @@ export default function App() {
             }
           };
         }}/>
-        <Tab.Screen name="社群" component={Community} 
+        <Tab.Screen name="社群" component={MyStackLogin} 
         options={props => {
           return{
             tabBarVisible: !props.route.state || props.route.state.index === 0,
@@ -126,11 +126,10 @@ const styles = StyleSheet.create({
   tabbar:{
     backgroundColor:'#333333',
     borderWidth:0,
-    borderTopColor:'#333333',
-    borderTopWidth:2,
+    borderTopColor:'#3B3B3B',
+    borderTopWidth:1,
     color:'#FCF4E9',
     height:60,
-    
   },
   tabicon1:{
     width:20,

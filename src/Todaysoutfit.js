@@ -31,21 +31,24 @@ const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
 const TodaysOutfit = ({route}) => {
-    const [FirstBoxPosition, setFirstBoxPosition] = useState(false);
-    const toggleFirstBox = () => {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.default);
-      setFirstBoxPosition(FirstBoxPosition === true ? false : true);
-    }
-      const [SecondBoxPosition, setSecondBoxPosition] = useState(true);
-    const toggleSecondBox = () => {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.default);
-      setSecondBoxPosition(SecondBoxPosition === true ? false : true);
-    }
-      const [ThirdBoxPosition, setThirdBoxPosition] = useState(false);
-    const toggleThirdBox = () => {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.default);
-      setThirdBoxPosition(ThirdBoxPosition === true ? false : true);
-    }
+const [bottn1state, setbottn1state] = useState(false);
+const [bottn2state, setbottn2state] = useState(true);
+const [bottn3state, setbottn3state] = useState(false);
+const togglebottn1 = () => {
+    setbottn1state(bottn1state === true ? true : true);
+    setbottn2state(bottn2state === false ? false : false);
+    setbottn3state(bottn3state === false ? false : false);
+};
+const togglebottn2 = () => {
+  setbottn1state(bottn1state === false ? false : false);
+  setbottn2state(bottn2state === true ? true : true);
+  setbottn3state(bottn3state === false ? false : false);
+};
+const togglebottn3 = () => {
+  setbottn1state(bottn1state === false ? false : false);
+  setbottn2state(bottn2state === false ? false : false);
+  setbottn3state(bottn3state === true ? true : true);
+};
 
     const [selectedValue, setSelectedValue] = useState(route.params);
     return (
@@ -57,16 +60,18 @@ const TodaysOutfit = ({route}) => {
         style={styles.background}
         />
         <View style={styles.index1}>
-            <View style={styles.titlebar}></View>
             <View style={styles.titles}>
-                <TouchableOpacity onPress={toggleFirstBox}>
-                <Text style={[styles.title1,FirstBoxPosition === false || SecondBoxPosition === true || ThirdBoxPosition === true ? null : styles.title11]}>昨日</Text>
+                <TouchableOpacity style={{alignItems:'center'}} onPress={togglebottn1}>
+                  <Text style={[styles.activebutton1word1,bottn1state === true ? null : styles.button1word1]}>昨日</Text>
+                  <View style={[styles.activebar1,bottn1state === true ? null : styles.bar1]}></View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={toggleSecondBox}>
-                <Text style={[styles.title22,SecondBoxPosition === true || FirstBoxPosition === false || ThirdBoxPosition === false ? null : styles.title2]}>今日搭配</Text>
+                <TouchableOpacity style={{alignItems:'center'}} onPress={togglebottn2}>
+                  <Text style={[styles.activebutton1word2,bottn2state === true ? null : styles.button1word2]}>今日搭配</Text>
+                  <View style={[styles.activebar2,bottn2state === true ? null : styles.bar2]}></View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={toggleThirdBox}>
-                <Text style={[styles.title3,ThirdBoxPosition === false || FirstBoxPosition === true || SecondBoxPosition === true ? null : styles.title33]}>明日</Text> 
+                <TouchableOpacity style={{alignItems:'center'}} onPress={togglebottn3}>
+                  <Text style={[styles.activebutton1word3,bottn3state === true ? null : styles.button1word3]}>明日</Text>
+                  <View style={[styles.activebar3,bottn3state === true ? null : styles.bar3]}></View>
                 </TouchableOpacity>
             </View>
         <View style={styles.words}>
@@ -74,9 +79,10 @@ const TodaysOutfit = ({route}) => {
                 <View style={styles.container1}>
                 <View style={styles.bar}></View>
             <Picker
-            
+            mode={'dropdown'}
+            itemStyle={{color:"#5674AC"}}
             selectedValue={selectedValue}
-            style={{ height: 50, width: 130,top:-35 }}
+            style={{ height: 50, width: 130,top:-55}}
             onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
             >
                 <Picker.Item label="重要活動" value={1} />
@@ -151,15 +157,61 @@ const TodaysOutfit = ({route}) => {
         marginTop:9,
         marginLeft:16,
     },
-    bar:{
+    bar1:{
+        width:44,
+        borderWidth:2.5,
+        height:0,
+        borderColor:'#B4CCFA',
+        opacity:0,
+        borderRadius:5,
+        
+    },
+    bar2:{
         width:110,
         borderWidth:2.5,
         height:0,
         borderColor:'#B4CCFA',
-        opacity:0.91,
+        opacity:0,
         borderRadius:5,
-        marginTop:-23,
-        marginLeft:-13,
+        
+    },
+    bar3:{
+        width:44,
+        borderWidth:2.5,
+        height:0,
+        borderColor:'#B4CCFA',
+        opacity:0,
+        borderRadius:5,
+        
+    },
+    activebar1:{
+        width:44,
+        height:9,
+        backgroundColor:'#5674AC',
+        opacity:0.91,
+        borderRadius:50,
+        marginTop:-8,
+        zIndex:3,
+        marginLeft:-30
+    },
+    activebar2:{
+        width:86,
+        height:9,
+        backgroundColor:'#5674AC',
+        opacity:0.91,
+        borderRadius:50,
+        marginTop:-8,
+        zIndex:3,
+        marginLeft:1.5,
+    },
+    activebar3:{
+        width:44,
+        height:9,
+        backgroundColor:'#5674AC',
+        opacity:0.91,
+        borderRadius:50,
+        marginTop:-8,
+        zIndex:3,
     },
     titlebar:{
         position:'absolute',
@@ -174,7 +226,8 @@ const TodaysOutfit = ({route}) => {
     titles:{
         flexDirection:'row',
         alignSelf:'center',
-        marginTop:-22,
+        marginTop:-28,
+        marginLeft:26
     },
     title1:{
         fontSize:18,
@@ -250,4 +303,85 @@ const TodaysOutfit = ({route}) => {
         marginTop:-50,
         resizeMode:'stretch',
     },
+
+    dot:{
+        width:6,
+        height:6,
+        backgroundColor:"#FCF4E9",
+        borderRadius:50,
+        
+        marginTop:2,
+        opacity:0,
+      },
+      activedot:{
+        width:6,
+        height:6,
+        backgroundColor:"#FCF4E9",
+        borderRadius:50,
+        
+        marginTop:2,
+        opacity:1,
+      },
+      activedot2:{
+        width:6,
+        height:6,
+        backgroundColor:"#FCF4E9",
+        borderRadius:50,
+        marginRight:29,
+        marginTop:2,
+        opacity:1,
+      },
+      
+      
+      button1word1:{
+        color:'#FFFFFF',
+        fontSize:18,
+        marginTop:8,
+        opacity:0.72,
+        marginRight:29,
+      },
+      button1word2:{
+        color:'#FFFFFF',
+        fontSize:18,
+        marginLeft:29,
+        marginRight:29,
+        marginTop:8,
+        opacity:0.72,
+      },
+      button1word3:{
+        color:'#FFFFFF',
+        fontSize:18,
+        marginLeft:29,
+        marginRight:29,
+        marginTop:8,
+        opacity:0.72,
+      },
+    
+      activebutton1word1:{
+        color:'#FFFFFF',
+        fontSize:20,
+        marginTop:5,
+        marginRight:29,
+        opacity:1,
+        zIndex:6,
+        
+      },
+      activebutton1word2:{
+        color:'#FFFFFF',
+        fontSize:20,
+        marginTop:5,
+        marginLeft:29,
+        marginRight:29,
+        opacity:1,
+        zIndex:6,
+      },
+      activebutton1word3:{
+        color:'#FFFFFF',
+        fontSize:20,
+        marginTop:5,
+        marginLeft:29,
+        marginRight:29,
+        opacity:1,
+        zIndex:6,
+      },
   });

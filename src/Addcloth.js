@@ -3,22 +3,25 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'rea
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
+export var uri = 'https://upload.cc/i1/2020/06/30/iLOYWr.png';
 
 const Addcloth = ({route,navigation}) => {
+  
+    var photouri = route.params;
+    global.uri = route.params;
+    
     return (
       <View style={styles.container}>
-        <View style={{height:500,}}>
-
-        </View>
+        
         <Image
           source={{uri:route.params}}
-          style={{width:200,height:200,position:'absolute',top:200,left:60,zIndex:5}}
+          style={{width:200,height:200,zIndex:5}}
         />
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.pop(2)}
+          onPress={() => navigation.navigate('MyClothet',photouri)}
         >
-          <Text style={styles.buttonword}>Press Here</Text>
+          <Text style={styles.buttonword}>確認儲存</Text>
         </TouchableOpacity>
         
       </View>
@@ -28,8 +31,8 @@ const Addcloth = ({route,navigation}) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: "center",
-      
+      justifyContent: 'center',
+      alignItems:"center",
     },
     button:{
         
@@ -44,7 +47,7 @@ const Addcloth = ({route,navigation}) => {
       },
       buttonword:{
         fontSize:16,
-        color:'black',
+        color:'white',
         
       },
   });

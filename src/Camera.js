@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Image, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { Camera } from 'expo-camera';
 import { Slider } from 'react-native-elements';
-
+export var sta = false;
 
 import TypeSelector1 from './Typeselector1';
 
@@ -41,11 +41,11 @@ if (hasPermission === null) {
           <TouchableOpacity style={{alignSelf: 'center',marginBottom:15}} onPress={async() => {
             if(cameraRef){
               let photo = await cameraRef.takePictureAsync();
-              console.log('photo', photo);
+              
               photodata = photo;
-              console.log('photodata',photodata.uri);
+              
               photouri = photodata.uri;
-            } navigation.navigate('AddCloth',photouri )
+            } navigation.navigate('AddCloth',photouri ),global.sta = !global.sta
           }}>
             <View style={{ 
                borderWidth: 5,

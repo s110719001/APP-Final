@@ -4,11 +4,14 @@ import Hint from './Hint';
 import Header from './Header';
 import Expand from './Expandedcontent';
 import MyclothetSelector from './MyclotheSelector';
+import uri from './Addcloth';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
-function MyClothet({navigation}){
+function MyClothet({route,navigation}){
+  global.uri,global.sta === true ? null : global.uri='https://upload.cc/i1/2020/06/30/iLOYWr.png'
+  var photouri = route.params;
   return (
     <View style={styles.container}>
       <Text style={styles.bigtitle}>我的衣櫃</Text>
@@ -39,9 +42,17 @@ function MyClothet({navigation}){
             source={require('../images/hanger.png')}
             style={styles.hanger}
             />
+            <Image
+            source={{uri:global.uri}}
+            style={{width:218,height:218,alignSelf:'center',marginBottom:-210,borderRadius:10}}
+            />
           <Image
           source={require('../images/blueline.png')}
           style={styles.blueline}
+          />
+          <Image
+          source={require('../images/clothexample/short1.png')}
+          style={{width:217.81,height:194.02,resizeMode:'stretch',alignSelf:'center'}}
           />
         </View>
       </View>
@@ -145,6 +156,7 @@ const styles = StyleSheet.create({
     height:SCREENHEIGHT*0.0163,
     alignSelf:'center',
     marginTop:SCREENHEIGHT*0.2617,
+    
   },
   hint:{
     width:40,
