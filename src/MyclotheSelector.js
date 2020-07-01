@@ -83,7 +83,7 @@ const togglebottn4 = () => {
                           <Text style={[styles.activebutton1word4,bottn4state === true ? null : styles.button1word4]}>搭配</Text>
                           <View style={[styles.activedot4,bottn4state === true ? null : styles.dot]}></View>
                         </TouchableOpacity>
-                          <TouchableOpacity onPress={() => navigation.navigate('Camera',navigation)}>
+                          <TouchableOpacity onPress={function(){navigation.navigate('Camera',navigation,toggleFirstBox())}}>
                           <Image
                           source={require('../images/plusbtn.png')}
                           style={styles.plusbtn}
