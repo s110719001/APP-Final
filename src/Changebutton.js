@@ -8,8 +8,48 @@ const TypeSelector = ({navigation}) => {
   const [FirstBoxPosition, setFirstBoxPosition] = useState("left");
   const toggleFirstBox = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    setFirstBoxPosition(FirstBoxPosition === "left" ? "right" : "left");
-};
+    setFirstBoxPosition(FirstBoxPosition === "left" ? "right" : "left");};
+
+    const [Button1Position, setButton1Position] = useState("left");
+  const toggleButton1 = () => {
+    setButton1Position(Button1Position === "right" ? "right" : "right");
+    setButton2Position(Button2Position === "left" ? "left" : "left");
+    setButton3Position(Button3Position === "left" ? "left" : "left");
+    setButton4Position(Button4Position === "left" ? "left" : "left");
+    setButton5Position(Button5Position === "left" ? "left" : "left");
+  };
+  const [Button2Position, setButton2Position] = useState("left");
+  const toggleButton2 = () => {
+    setButton1Position(Button1Position === "left" ? "left" : "left");
+    setButton2Position(Button2Position === "right" ? "right" : "right");
+    setButton3Position(Button3Position === "left" ? "left" : "left");
+    setButton4Position(Button4Position === "left" ? "left" : "left");
+    setButton5Position(Button5Position === "left" ? "left" : "left");
+  };
+  const [Button3Position, setButton3Position] = useState("left");
+  const toggleButton3 = () => {
+    setButton1Position(Button1Position === "left" ? "left" : "left");
+    setButton2Position(Button2Position === "left" ? "left" : "left");
+    setButton3Position(Button3Position === "right" ? "right" : "right");
+    setButton4Position(Button4Position === "left" ? "left" : "left");
+    setButton5Position(Button5Position === "left" ? "left" : "left");
+  };
+  const [Button4Position, setButton4Position] = useState("left");
+  const toggleButton4 = () => {
+    setButton1Position(Button1Position === "left" ? "left" : "left");
+    setButton2Position(Button2Position === "left" ? "left" : "left");
+    setButton3Position(Button3Position === "left" ? "left" : "left");
+    setButton4Position(Button4Position === "right" ? "right" : "right");
+    setButton5Position(Button5Position === "left" ? "left" : "left");
+  };
+  const [Button5Position, setButton5Position] = useState("left");
+  const toggleButton5 = () => {
+    setButton1Position(Button1Position === "left" ? "left" : "left");
+    setButton2Position(Button2Position === "left" ? "left" : "left");
+    setButton3Position(Button3Position === "left" ? "left" : "left");
+    setButton4Position(Button4Position === "left" ? "left" : "left");
+    setButton5Position(Button5Position === "right" ? "right" : "right");
+  };
   return (
         <View style={styles.container}>
             <View style={[styles.buttonContainer1]}>
@@ -21,22 +61,22 @@ const TypeSelector = ({navigation}) => {
             <View style={[styles.box1,FirstBoxPosition === "left" ? null : styles.moveRight1]}>
                 <View style={styles.content1}>
                     <Text style={styles.word}>這件衣服更適合</Text>
-                    <TouchableOpacity style={styles.button1} onPress={() => navigation.mavigate("MyClothet")}>
-                        <Text style={styles.word1}>重要活動</Text>
+                    <TouchableOpacity style={styles.button1} onPress={toggleButton1}>
+                        <Text style={[styles.word1,Button1Position === "left" ? null : styles.word22]}>重要活動</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button2} onPress={() => navigation.mavigate("MyClothet")}>
-                        <Text style={styles.word2}>工作</Text>
+                    <TouchableOpacity style={styles.button2} onPress={toggleButton2}>
+                        <Text style={[styles.word2,Button2Position === "left" ? null : styles.word22]}>工作</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button3} onPress={() => navigation.mavigate("MyClothet")}>
-                        <Text style={styles.word3}>上課</Text>
+                    <TouchableOpacity style={styles.button3} onPress={toggleButton3}>
+                        <Text style={[styles.word3,Button3Position === "left" ? null : styles.word22]}>上課</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button4} onPress={() => navigation.mavigate("MyClothet")}>
-                        <Text style={styles.word4}>休閒</Text>
+                    <TouchableOpacity style={styles.button4} onPress={toggleButton4}>
+                        <Text style={[styles.word4,Button4Position === "left" ? null : styles.word22]}>休閒</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button5} onPress={() => navigation.mavigate("MyClothet")}>
-                        <Text style={styles.word5}>運動</Text>
+                    <TouchableOpacity style={styles.button5} onPress={toggleButton5}>
+                        <Text style={[styles.word5,Button5Position === "left" ? null : styles.word22]}>運動</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button6} onPress={() => navigation.mavigate("MyClothet")}>
+                    <TouchableOpacity style={styles.button6} onPress={() => navigation.navigate("MyClothet")}>
                         <Text style={styles.word6}>確定</Text>
                     </TouchableOpacity>
                     
@@ -90,7 +130,7 @@ container: {
     width: 180,
     borderRadius: 10,
     margin: 8,
-    marginTop:-45,
+    marginTop:10,
     backgroundColor: "white",
     opacity:0,
     left:35,
@@ -142,6 +182,9 @@ container: {
     borderRadius:10,
     marginTop:16,
   },
+  word22:{
+    backgroundColor:"#5674AC",
+  },
   word3:{
     color:"#FCF4E9",
     backgroundColor:"#5E6B7B",
@@ -184,7 +227,7 @@ container: {
     alignSelf:"flex-end",
   },
   moveRight1: {
-    top:-316,
+    top:-371,
     opacity:1,
     zIndex:6,
     left:37
@@ -192,6 +235,9 @@ container: {
   buttonContainer1: {
     alignSelf: "flex-end",
     top:20,
+  },
+  moveRight2:{
+    alignSelf:"flex-end",
   },
 });
 

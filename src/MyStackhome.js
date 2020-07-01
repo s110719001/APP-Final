@@ -25,7 +25,7 @@ const MyStackhome = () => {
             headerShown:false
         }}
         />
-        <Stack.Screen name="TodaysOutfit" component={MyClothet} 
+        <Stack.Screen name="MyClothet" component={MyClothet} 
         options={{
             headerShown:false
         }}
