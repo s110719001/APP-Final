@@ -24,6 +24,8 @@ import MyStackLogin from './src/MyStackLogin';
 import LeaderSelector from './src/LeaderSelector';
 import Test from './src/Test';
 import WeatherBar from './src/Weather';
+import Logout from './src/Logout';
+
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 const Tab = createBottomTabNavigator();

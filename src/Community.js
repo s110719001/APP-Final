@@ -9,11 +9,11 @@ import Changebutton from './Changebutton';
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
-const Community = () => {
+const Community = ({navigation}) => {
     return (
       <View style={styles.container}>
         <Text style={styles.bigtitle}>社群</Text>
-        <Header></Header>
+        <Header navigation={navigation}></Header>
         <Image
         source={require('../images/background.png')}
         style={styles.background}

@@ -1,16 +1,17 @@
 import React, { useState }  from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StoreContext,StoreProvider } from './stores';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
-const Header = () => {
+const Header = ({navigation}) => {
     return (
       <View style={styles.container}>
         <View style={{flexDirection:'row'}}>
             <TouchableOpacity
             style={styles.button}
-            onPress={function(){console.log('按到了!')}}
+            onPress={() => navigation.navigate('Logout',navigation)}
             >
                 <Image
                 source={require('../images/person.png')}

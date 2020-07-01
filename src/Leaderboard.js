@@ -3,10 +3,12 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'rea
 import LeaderSelector from './LeaderSelector';
 import Header from './Header';
 
+
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
 const Leaderboard = ({navigation}) => {
+  var num ;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -40,10 +42,6 @@ const Leaderboard = ({navigation}) => {
           </View>
           <LeaderSelector></LeaderSelector>
           <Text style={styles.rateword}>穿搭頻率</Text>
-          <Image
-          source={require('../images/rate.png')}
-          style={{width:223,height:116,position:'absolute',bottom:29,alignSelf:'center'}}
-          />
       </View>
     );
   };

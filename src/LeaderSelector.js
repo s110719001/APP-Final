@@ -3,14 +3,13 @@ import {
   Text, 
   View,
   SafeAreaView ,
-Image,} from 'react-native';
+Image,StyleSheet} from 'react-native';
 
 import Carousel from 'react-native-snap-carousel';
-
-
-
+import RateJson from '../json/clothrate.json';
+export var now;
+var rateheight;
 export default class App extends React.Component {
-
 
 
 
@@ -20,18 +19,28 @@ export default class App extends React.Component {
           activeIndex:0,
           carouselItems: [
           {
+            outfitnum : "1",
+            rate : "55",
             path:"https://upload.cc/i1/2020/06/30/lr0zuY.png"
           },
           {
+            outfitnum : "2",
+            rate : "20",
             path:"https://upload.cc/i1/2020/06/30/IudzUY.png"
           },
           {
+            outfitnum : "3",
+            rate : "15",
             path:"https://upload.cc/i1/2020/06/30/JvsIGD.png"
           },
           {
+            outfitnum : "4",
+            rate : "6",
             path:"https://upload.cc/i1/2020/06/30/c9j1o3.png"
           },
           {
+            outfitnum : "5",
+            rate : "4",
             path:"https://upload.cc/i1/2020/06/30/hCsFgy.png"
           },
         ]
@@ -39,7 +48,10 @@ export default class App extends React.Component {
     }
 
     _renderItem({item,index}){
+      
         if(item.path === "https://upload.cc/i1/2020/06/30/lr0zuY.png"){
+           global.now=item.rate;
+           rateheight=global.now;
             return (
                 <View>
                   <Image
@@ -50,18 +62,37 @@ export default class App extends React.Component {
                   source={{uri:item.path}}
                   style={{alignSelf:'center',width:240,resizeMode:'stretch',height:374,borderRadius:20,marginTop:20}}
                   />
+                  <View style={styles.container}>
+                    <View style={{alignItems:"center"}}>
+                      <View style={styles.box}></View>
+                        <View style={{flexDirection:"row"}}>
+                        <Text style={styles.rate}>{item.rate}</Text>
+                        <Text style={styles.percentage}>%</Text>
+                      </View>
+                    </View>
+                  </View>
                 </View>
-      
+
               )
         }else{
+          global.now=item.rate;
+          rateheight=global.now;
             return (
                 <View>
                   <Image
                   source={{uri:item.path}}
                   style={{alignSelf:'center',width:240,resizeMode:'stretch',height:374,borderRadius:20,marginTop:53.64}}
                   />
+                  <View style={styles.container}>
+                    <View style={{alignItems:"center"}}>
+                      <View style={styles.box}></View>
+                        <View style={{flexDirection:"row"}}>
+                        <Text style={styles.rate}>{item.rate}</Text>
+                        <Text style={styles.percentage}>%</Text>
+                      </View>
+                    </View>
+                  </View>
                 </View>
-      
               )
 
         }
@@ -84,4 +115,28 @@ export default class App extends React.Component {
         );
     }
 }
-
+console.log(global.now);
+const styles = StyleSheet.create({
+  container: {
+    zIndex:4,
+  },
+  box:{
+      width:40,
+      height:global.now,
+      backgroundColor:"#FACFC9",
+      
+      position:'absolute',
+      bottom:40,
+  },
+  rate:{
+      color:"#FCF4E9",
+      fontSize:26,
+      marginTop:130,
+  },
+  percentage:{
+      color:"#FCF4E9",
+      fontSize:16,
+      marginTop:139,
+      marginLeft:4,
+  },
+});

@@ -1,9 +1,10 @@
 import React, { useState, useContext }  from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Login,{ StoreContext, StoreProvider } from './Login';
+import Login from './Login';
 import Community from './Community';
-
+import Logout from './Logout';
+import { StoreContext,StoreProvider } from './stores';
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
@@ -16,6 +17,11 @@ const MyStackLogin = () => {
       
       <Stack.Navigator>
         <Stack.Screen name="Community" component={Community} 
+        options={{
+            headerShown:false
+        }}
+        />
+        <Stack.Screen name="Logout" component={Logout} 
         options={{
             headerShown:false
         }}
