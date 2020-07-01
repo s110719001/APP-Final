@@ -4,7 +4,7 @@ import { DangerZone } from "expo";
 import SwiperTop from './Swipetop';
 import SwipeBottom from './Swipebottom';
 
-const TypeSelector = () => {
+const TypeSelector = ({navigation}) => {
   const [FirstBoxPosition, setFirstBoxPosition] = useState("left");
   const toggleFirstBox = () => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -21,22 +21,22 @@ const TypeSelector = () => {
             <View style={[styles.box1,FirstBoxPosition === "left" ? null : styles.moveRight1]}>
                 <View style={styles.content1}>
                     <Text style={styles.word}>這件衣服更適合</Text>
-                    <TouchableOpacity style={styles.button1} onPress={toggleFirstBox}>
+                    <TouchableOpacity style={styles.button1} onPress={() => navigation.mavigate("MyClothet")}>
                         <Text style={styles.word1}>重要活動</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button2} onPress={toggleFirstBox}>
+                    <TouchableOpacity style={styles.button2} onPress={() => navigation.mavigate("MyClothet")}>
                         <Text style={styles.word2}>工作</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button3} onPress={toggleFirstBox}>
+                    <TouchableOpacity style={styles.button3} onPress={() => navigation.mavigate("MyClothet")}>
                         <Text style={styles.word3}>上課</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button4} onPress={toggleFirstBox}>
+                    <TouchableOpacity style={styles.button4} onPress={() => navigation.mavigate("MyClothet")}>
                         <Text style={styles.word4}>休閒</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button5} onPress={toggleFirstBox}>
+                    <TouchableOpacity style={styles.button5} onPress={() => navigation.mavigate("MyClothet")}>
                         <Text style={styles.word5}>運動</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button6} onPress={toggleFirstBox}>
+                    <TouchableOpacity style={styles.button6} onPress={() => navigation.mavigate("MyClothet")}>
                         <Text style={styles.word6}>確定</Text>
                     </TouchableOpacity>
                     

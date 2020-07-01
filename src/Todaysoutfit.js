@@ -103,7 +103,7 @@ const togglebottn3 = () => {
             style={styles.outfit}
             />
         </View>
-        <Changebutton></Changebutton>
+        <Changebutton navigation={navigation}></Changebutton>
       </View>
     );
   };

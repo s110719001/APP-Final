@@ -5,6 +5,7 @@ import TodaysOutfit from './Todaysoutfit';
 import Ask from './Ask'
 import Logout from './Logout';
 import Login from './Login';
+import MyClothet from './MyClothet';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
@@ -20,6 +21,11 @@ const MyStackhome = () => {
         }}
         />
         <Stack.Screen name="Ask" component={Ask} 
+        options={{
+            headerShown:false
+        }}
+        />
+        <Stack.Screen name="TodaysOutfit" component={MyClothet} 
         options={{
             headerShown:false
         }}
