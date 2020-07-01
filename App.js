@@ -3,28 +3,12 @@ import * as firebase from "firebase";
 import { StyleSheet, Text, View, Dimensions, Image, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ask from './src/Ask'
-import MyClothet from './src/MyClothet'
-import AddCloth from './src/Addcloth'
-import Hint from './src/Hint'
-import Leaderboard from './src/Leaderboard';
+
 import MyStack from './src/MyStack'
 import MyStackhome from './src/MyStackhome';
-import Header from './src/Header';
-import Changebutton from './src/Changebutton';
-import MyStackaddcloth from './src/MyStackaddcloth';
-import MyclothSelector from './src/MyclotheSelector';
-import SwiperTop from './src/Swipetop'
-import Camera from './src/Camera';
-import Expand from './src/Expandedcontent';
-import Picker from './src/Picker';
-import Community from './src/Community';
-import Login,{ StoreContext, StoreProvider } from './src/Login';
+
 import MyStackLogin from './src/MyStackLogin';
-import LeaderSelector from './src/LeaderSelector';
-import Test from './src/Test';
-import WeatherBar from './src/Weather';
-import Logout from './src/Logout';
+
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
