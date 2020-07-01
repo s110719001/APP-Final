@@ -9,26 +9,36 @@ const SCREENHEIGHT = Dimensions.get('window').height;
 
 const Stack = createStackNavigator();
 
-const MyStackleader = () => {
-    
-    return (
-    
-      <Stack.Navigator initialRouteName='Login'>
+const MyStackLogin = () => {
+  const { isLoginState } = useContext(StoreContext);
+  const [ isLogin, setIsLogin] = isLoginState;
+    return isLogin ? (
+      
+      <Stack.Navigator>
         <Stack.Screen name="Community" component={Community} 
-        options={{
-            headerShown:false
-        }}
-        />
-        <Stack.Screen name="Login" component={Login} 
         options={{
             headerShown:false
         }}
         />
       </Stack.Navigator>
     
+    ) : (
+      <Stack.Navigator>
+      <Stack.Screen name="Login" component={Login} 
+        options={{
+            headerShown:false
+        }}
+        />
+      </Stack.Navigator>
+      );
+  };
+  export default () => {
+    return(
+      <StoreProvider>
+        <MyStackLogin></MyStackLogin>
+      </StoreProvider>
     );
   };
-  export default MyStackleader;
   const styles = StyleSheet.create({
     container: {
       flex: 1,

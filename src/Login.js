@@ -4,7 +4,7 @@ import { View, StyleSheet,Dimensions,TouchableOpacity,Text,Image } from "react-n
 import { Button } from "react-native-elements";
 import Input from "../components/Input";
 import Header from './Header';
-
+import { StoreContext } from "../src/stores/index";
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
@@ -12,7 +12,8 @@ const SCREENHEIGHT = Dimensions.get('window').height;
 
 
 const LoginScreen = ({navigation}) => {
-  
+  const { isLoginState } = useContext(StoreContext);
+  const [isLogin, setIsLogin] = isLoginState;
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 //   const [username, setUsername] = useState(null);
@@ -24,7 +25,7 @@ const LoginScreen = ({navigation}) => {
     setError(" ");
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
-      
+      setIsLogin(true);
     } catch (err1) {
       try {
         await firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -32,7 +33,7 @@ const LoginScreen = ({navigation}) => {
         setPassword("");
         // setUsername("");
         setError("");
-        
+        setIsLogin(true);
       } catch (err2) {
         alert(err2.message);
       }

@@ -1,6 +1,6 @@
 import React, { useState }  from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
-
+import WeatherBar from './Weather';
 import Header from './Header';
 
 const SCREENWIDTH = Dimensions.get('window').width;
@@ -33,7 +33,7 @@ const togglebottn3 = () => {
       source={require('../images/background.png')}
       style={styles.background}
       />
-      
+      <WeatherBar></WeatherBar>
       <View style={styles.index}>
       <View style={styles.titles}>
                 <TouchableOpacity style={{alignItems:'center'}} onPress={togglebottn1}>

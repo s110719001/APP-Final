@@ -4,6 +4,7 @@ import ActionButton from 'react-native-action-button';
 import ModalDropdown from 'react-native-modal-dropdown';
 import Header from './Header';
 import Changebutton from './Changebutton';
+import Weather from './Weather';
 
 const Btn1press = ({btn1press,btn2press,btn3press}) => {
     return(
@@ -59,6 +60,7 @@ const togglebottn3 = () => {
         source={require('../images/background.png')}
         style={styles.background}
         />
+        <Weather></Weather>
         <View style={styles.index1}>
             <View style={styles.titles}>
                 <TouchableOpacity style={{alignItems:'center'}} onPress={togglebottn1}>

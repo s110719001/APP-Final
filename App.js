@@ -23,6 +23,7 @@ import Login,{ StoreContext, StoreProvider } from './src/Login';
 import MyStackLogin from './src/MyStackLogin';
 import LeaderSelector from './src/LeaderSelector';
 import Test from './src/Test';
+import WeatherBar from './src/Weather';
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 const Tab = createBottomTabNavigator();
