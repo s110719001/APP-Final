@@ -42,16 +42,6 @@ const MyStack = () => {
             headerShown:false
         }}
         />
-        <Stack.Screen name="Logout" component={Logout} 
-        options={{
-            headerShown:false
-        }}
-        />
-        <Stack.Screen name="Login" component={Login} 
-        options={{
-            headerShown:false
-        }}
-        />
       </Stack.Navigator>
     );
   };

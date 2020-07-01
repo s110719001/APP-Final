@@ -76,7 +76,7 @@ const TypeSelector = ({navigation}) => {
                     <TouchableOpacity style={styles.button5} onPress={toggleButton5}>
                         <Text style={[styles.word5,Button5Position === "left" ? null : styles.word22]}>運動</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button6} onPress={() => navigation.navigate("MyClothet")}>
+                    <TouchableOpacity style={styles.button6} onPress={() => navigation.navigate("衣櫃")}>
                         <Text style={styles.word6}>確定</Text>
                     </TouchableOpacity>
                     

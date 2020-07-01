@@ -9,8 +9,7 @@ import TypeSelector1 from './Typeselector1';
  
 export default function App({navigation, photouri = 0}) {
   var photodata;
-  enableScroll = () => this.setState({ scrollEnabled: true });
- disableScroll = () => this.setState({ scrollEnabled: false });
+  
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraRef, setCameraRef] = useState(null)
   const [type, setType] = useState(Camera.Constants.Type.back);
