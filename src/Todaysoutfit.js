@@ -31,7 +31,7 @@ const Btn3press = ({btn1press,btn2press,btn3press}) => {
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 
-const TodaysOutfit = ({route}) => {
+const TodaysOutfit = ({route,navigation}) => {
 const [bottn1state, setbottn1state] = useState(false);
 const [bottn2state, setbottn2state] = useState(true);
 const [bottn3state, setbottn3state] = useState(false);

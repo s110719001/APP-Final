@@ -26,6 +26,7 @@ const LoginScreen = ({navigation}) => {
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       setIsLogin(true);
+      navigation.navigate('Community')
     } catch (err1) {
       try {
         await firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -34,6 +35,7 @@ const LoginScreen = ({navigation}) => {
         // setUsername("");
         setError("");
         setIsLogin(true);
+        navigation.navigate('Community')
       } catch (err2) {
         alert(err2.message);
       }

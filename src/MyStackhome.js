@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'rea
 import { createStackNavigator } from '@react-navigation/stack';
 import TodaysOutfit from './Todaysoutfit';
 import Ask from './Ask'
+import Logout from './Logout';
+import Login from './Login';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
@@ -18,6 +20,16 @@ const MyStackhome = () => {
         }}
         />
         <Stack.Screen name="Ask" component={Ask} 
+        options={{
+            headerShown:false
+        }}
+        />
+        <Stack.Screen name="Logout" component={Logout} 
+        options={{
+            headerShown:false
+        }}
+        />
+        <Stack.Screen name="Login" component={Login} 
         options={{
             headerShown:false
         }}

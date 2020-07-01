@@ -4,6 +4,7 @@ import LeaderSelector from './LeaderSelector';
 import Header from './Header';
 
 
+
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
 

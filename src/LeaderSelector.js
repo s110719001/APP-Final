@@ -7,8 +7,6 @@ Image,StyleSheet} from 'react-native';
 
 import Carousel from 'react-native-snap-carousel';
 import RateJson from '../json/clothrate.json';
-export var now;
-var rateheight;
 export default class App extends React.Component {
 
 
@@ -50,8 +48,6 @@ export default class App extends React.Component {
     _renderItem({item,index}){
       
         if(item.path === "https://upload.cc/i1/2020/06/30/lr0zuY.png"){
-           global.now=item.rate;
-           rateheight=global.now;
             return (
                 <View>
                   <Image
@@ -68,6 +64,7 @@ export default class App extends React.Component {
                         <View style={{flexDirection:"row"}}>
                         <Text style={styles.rate}>{item.rate}</Text>
                         <Text style={styles.percentage}>%</Text>
+                        <Text style={{width:35,height:item.rate*1.5,backgroundColor:'#FACFC9',position:"absolute",bottom:32,left:-15}}></Text>
                       </View>
                     </View>
                   </View>
@@ -75,8 +72,7 @@ export default class App extends React.Component {
 
               )
         }else{
-          global.now=item.rate;
-          rateheight=global.now;
+         
             return (
                 <View>
                   <Image
@@ -89,6 +85,7 @@ export default class App extends React.Component {
                         <View style={{flexDirection:"row"}}>
                         <Text style={styles.rate}>{item.rate}</Text>
                         <Text style={styles.percentage}>%</Text>
+                        <Text style={{width:35,height:item.rate*1.5,backgroundColor:'#FCF0E2',position:"absolute",bottom:32,left:-15}}></Text>
                       </View>
                     </View>
                   </View>
@@ -115,7 +112,6 @@ export default class App extends React.Component {
         );
     }
 }
-console.log(global.now);
 const styles = StyleSheet.create({
   container: {
     zIndex:4,
@@ -124,7 +120,7 @@ const styles = StyleSheet.create({
       width:40,
       height:global.now,
       backgroundColor:"#FACFC9",
-      
+
       position:'absolute',
       bottom:40,
   },
@@ -132,11 +128,13 @@ const styles = StyleSheet.create({
       color:"#FCF4E9",
       fontSize:26,
       marginTop:130,
+      position:"absolute",
+      right:-2
   },
   percentage:{
       color:"#FCF4E9",
       fontSize:16,
       marginTop:139,
-      marginLeft:4,
+      left:15,
   },
 });

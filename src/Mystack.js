@@ -6,6 +6,8 @@ import Hint from './Hint';
 import Leaderboard from './Leaderboard';
 import Camera from './Camera';
 import AddCloth from './Addcloth';
+import Logout from './Logout';
+import Login from './Login';
 
 const SCREENWIDTH = Dimensions.get('window').width;
 const SCREENHEIGHT = Dimensions.get('window').height;
@@ -36,6 +38,16 @@ const MyStack = () => {
         }}
         />
         <Stack.Screen name="Leaderboard" component={Leaderboard} 
+        options={{
+            headerShown:false
+        }}
+        />
+        <Stack.Screen name="Logout" component={Logout} 
+        options={{
+            headerShown:false
+        }}
+        />
+        <Stack.Screen name="Login" component={Login} 
         options={{
             headerShown:false
         }}

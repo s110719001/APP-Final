@@ -26,16 +26,27 @@ const MyStackLogin = () => {
             headerShown:false
         }}
         />
-      </Stack.Navigator>
-    
-    ) : (
-      <Stack.Navigator>
-      <Stack.Screen name="Login" component={Login} 
+        <Stack.Screen name="Login" component={Login} 
         options={{
             headerShown:false
         }}
         />
       </Stack.Navigator>
+    
+    ) : (
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login} 
+        options={{
+            headerShown:false
+        }}
+        />
+        <Stack.Screen name="Logout" component={Logout} 
+        options={{
+            headerShown:false
+        }}
+        />
+      </Stack.Navigator>
+      
       );
   };
   export default () => {
