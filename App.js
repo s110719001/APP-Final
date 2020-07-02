@@ -84,7 +84,7 @@ export default function App() {
         <Tab.Screen name="社群" component={MyStackLogin} 
         options={props => {
           return{
-            tabBarVisible: !props.route.state || props.route.state.index === 0,
+            
             tabBarIcon:() => {
               if(props.navigation.isFocused() === false){
               return(
